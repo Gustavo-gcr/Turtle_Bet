@@ -67,6 +67,15 @@ class Conta:
         else:
             print('Conta não encontrada.')
 
+    def atualizar_nome(self, numero_conta, novo_nome):
+        conta = self.encontrar_conta(numero_conta)
+        if conta:
+            conta['NOME'] = novo_nome
+            self.atualizar_conta(conta)
+            print(f'Nome atualizado com sucesso! Novo nome: {novo_nome}')
+        else:
+            print('Conta não encontrada.')
+
     def ver_saldo(self, numero_conta):
         conta = self.encontrar_conta(numero_conta)
         if conta:
@@ -74,7 +83,7 @@ class Conta:
         else:
             print('Conta não encontrada.')
 
-    def ver_todas_contas(self):#Por ser um projeto ficticio o número da conta será mostrado quando chamar esse método
+    def ver_todas_contas(self):
         print("\n=== Lista de Contas Cadastradas ===")
         for row in self.sheet.iter_rows(min_row=2, values_only=True):
             print(f"Nome: {row[1]}, Número da conta: {row[3]}, Saldo: {'****' if row[2] else '****'}")
@@ -105,8 +114,9 @@ def exibir_menu():
     print("2. Cadastrar uma nova conta")
     print("3. Depositar Dinheiro")
     print("4. Ver saldo da conta")
-    print("5. Ver todas as contas cadastradas")
-    print("6. Sair do programa")
+    print("5. Atualizar nome do titular")
+    print("6. Ver todas as contas cadastradas")
+    print("7. Sair do programa")
 
 WIDTH, HEIGHT = 700, 600
 CORES = ['red', 'green', 'blue', 'orange', 'yellow', 'black', 'purple', 'pink', 'brown', 'cyan']
@@ -227,9 +237,14 @@ def main():
             conta.ver_saldo(numero_conta)
 
         elif opcao == '5':
-            conta.ver_todas_contas()
+            numero_conta = int(input('Número da conta: '))
+            novo_nome = input('Novo nome do titular: ')
+            conta.atualizar_nome(numero_conta, novo_nome)
 
         elif opcao == '6':
+            conta.ver_todas_contas()
+
+        elif opcao == '7':
             print('Programa encerrado. Obrigado por utilizar!')
             break
 
