@@ -74,7 +74,7 @@ class Conta:
         else:
             print('Conta não encontrada.')
 
-    def ver_todas_contas(self):
+    def ver_todas_contas(self):#Por ser um projeto ficticio o número da conta será mostrado quando chamar esse método
         print("\n=== Lista de Contas Cadastradas ===")
         for row in self.sheet.iter_rows(min_row=2, values_only=True):
             print(f"Nome: {row[1]}, Número da conta: {row[3]}, Saldo: {'****' if row[2] else '****'}")
