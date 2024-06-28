@@ -28,6 +28,7 @@ class Conta:
             'NOME': nome,
             'SALDO': saldo,
             'NUM_CONTA': numero_conta
+            
         }
         self.sheet.append([idade, nome, saldo, numero_conta])
         self.wb.save(self.arquivo_excel)
