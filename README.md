@@ -1,4 +1,4 @@
-## Sistema de Apostas com Python
+## Sistema de Apostas com Python-- Atualização do código fonte
 
 ## O que é este programa?
 Este é um programa em Python que simula um sistema de apostas em corridas de tartarugas, onde você pode realizar operações como cadastro de usuários, depósitos, apostas e verificação de saldo.
